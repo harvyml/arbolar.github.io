@@ -1,8 +1,10 @@
 {
   "name": "Arbolar",
   "version": "0.1.0",
+  "homepage": "https://heml12346.github.io/arbolar.github.io",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "firebase": "^4.6.2",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
@@ -15,6 +17,7 @@
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
