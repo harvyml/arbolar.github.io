@@ -1,0 +1,23 @@
+.topics{
+  margin: auto;
+  width: 100vw;
+}
+
+.tab-topics{
+  width: 90vw;
+}
+
+.cards{
+  margin: 0;
+}
+
+.cards .card{
+  width: 60%;
+  margin: 5px auto;
+}
+
+@media only in screen and (max-width: 1200px){
+  .cards .card{
+    width: 100%;
+  }
+}
