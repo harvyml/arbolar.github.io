@@ -5,15 +5,14 @@
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",
-    "firebase": "^4.6.2",
+    "firebase": "^5.4.0",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
-    "pulse-editor": "^1.1.0",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.1.1",
-    "react-materialize": "^1.1.0",
-    "react-scripts": "1.0.17",
+    "react-materialize": "^2.4.2",
+    "react-scripts": "1.1.4",
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
