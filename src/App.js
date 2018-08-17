@@ -164,7 +164,7 @@ userNavigation(){
       return(
           <nav className='green lighten-5'>
             <ul className='right'>
-              <li><a href='#!'>Hola</a></li>
+              <li><a href='#!'>Holo</a></li>
               <li><a href='#!'>Hola</a></li>
               <li><a href='#!'>Hola</a></li>
             </ul>
