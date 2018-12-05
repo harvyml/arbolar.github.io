@@ -240,7 +240,7 @@ renderWhenLogin(){
       <div className="App">
         <header className="App-header">
         <div className='con-logo left'>
-          <span className="bold green-text">Bew</span>
+          <span className="bold green-text">Tecbew</span>
         </div>
           {this.userNavigation()}
 
