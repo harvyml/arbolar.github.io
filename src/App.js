@@ -6,8 +6,8 @@ import './materialize.css';
 import {Modal, Icon, Carousel, Row, Col, Card, CardTitle, Parallax, Input, Button, Container} from 'react-materialize';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import $ from "jquery";
-
-import Trees from './Trees';
+import Routes from "./routes"
+//import Trees from './Trees';
 
 class App extends Component{
   componentWillMount (){
@@ -21,11 +21,11 @@ class App extends Component{
     })
   })*/
 
-  firebase.database().ref('trees').limitToLast(1).on('child_added', snapshot => {
+  /*firebase.database().ref('trees').limitToLast(1).on('child_added', snapshot => {
     this.setState({
       trees: this.state.trees.concat(snapshot.val())//Se toma el array anterior para crear uno nuevo
     })
-  })
+  })*/
 }
 
 constructor(){
@@ -180,7 +180,7 @@ renderWhenLogin(){
       <Row className='app-content'>
         <Col className='main-container'>
         {this.handleShowFormat()}
-        <Trees/>
+        <Routes/>
 
           <Container>
 

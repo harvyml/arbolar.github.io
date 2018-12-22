@@ -11,18 +11,10 @@ class Routes extends Component{
 		}
 	}
 	render(){
-		const TreeCode = ({ match }) => {
-			this.setState({
-				treeCode: match.params.code
-			})
-			return (
-				<h1>Este arbol de nombre {this.state.treeCode} hace esto</h1>
-			)
-		}
 		return (
 			<Router>
 				<Switch>
-					<Route path="/tree/:code" component={TreeCode}/>
+					<Route path="/tree/:code" component={Tree}/>
 					<Route path="/trees" component={Trees}/>
 				</Switch>
 			</Router>
