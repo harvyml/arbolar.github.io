@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom"
 import firebase from 'firebase'
+import './tree.css'
+import {MediaBox} from 'react-materialize'
+import { HeadProvider, Title, Link as LinkHead, Meta } from 'react-head';
 
 class Tree extends Component{
 	componentWillMount(){
-		firebase.database().ref('trees').on('value', snap => {
+		firebase.database().ref('trees').once('value', snap => {
 			snap.forEach(snapchild => {
 				this.setState({
 					treeCode: this.state.treeCode.concat(snapchild.val())
@@ -19,26 +22,45 @@ class Tree extends Component{
 			metaTags: []//To put them in the head, so that the SEO improves
 		}
 		this.verify = this.verify.bind(this)
+		this.Head = this.Head.bind(this)
+	}
+
+
+	Head(){
+		const { match, location, history } = this.props;
+
+		for (var i in this.state.treeCode){
+			if(this.state.treeCode[i].code === match.params.code){
+				return (
+					<HeadProvider>
+				      <div className="Home">
+				        <Title>Arbolar | Arbol: {this.state.treeCode[i].code}</Title>
+				        <Meta name="description" content={this.state.treeCode[i].description} />
+				      </div>
+					</HeadProvider>
+					
+				)
+
+				break
+			}
+		}
 	}
 
 
 	verify(){
 		const { match, location, history } = this.props;
 		const tree = this.state.treeCode.map(tc => (
-				(tc.code === match.params.code) ? <div className="card">
-								                <div className="card-image waves-effect waves-block waves-light">
-								                  <img className="activator" src={tc.img}/>
-								                </div>
-								                <div className="card-content">
-								                  <span className="card-title activator grey-text text-darken-4">{tc.name}<i className="material-icons bottom-right">more_vert</i></span>
-								                  <p><a href="#" className="btn hoverable waves white green-text">Enviar</a></p>
-								                </div>
-								                <div className="card-reveal">
-								                  <span className="card-title grey-text text-darken-4">{tc.name}<i className="material-icons top-right">close</i></span>
-								                  <p>{tc.description}</p>
-								                  <p><a href="#" className="btn hoverable waves-light white green-text">Enviar</a></p>
-								                </div>
-								              </div> : ""
+				(tc.code === match.params.code) ?  	<div className="tree">
+														<div className="img-container">
+															<MediaBox src={tc.img} className="materialboxed"/>
+														</div>
+														<div className="description">
+															<h1 className="title">{tc.name}</h1>
+															<p>{tc.description}</p>
+															<a href="" className="btn waves hoverable waves-effect green">Ordenar</a>
+														</div>
+													</div>
+												   : ""
 			)
 		)
 		return tree
@@ -54,8 +76,10 @@ class Tree extends Component{
 			)
 		}*/
 		return(
-			<div className="container">
-				<h1>{this.verify()}</h1>
+			<div>
+			
+				{this.verify()}
+				{this.Head()}
 			</div>
 			
 
