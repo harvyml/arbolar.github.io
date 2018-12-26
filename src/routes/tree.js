@@ -50,7 +50,7 @@ class Tree extends Component{
 	verify(){
 		const { match, location, history } = this.props;
 		const tree = this.state.treeCode.map(tc => (
-				(tc.code === match.params.code) ?  	<div className="tree">
+				(tc.code === match.params.code) ?  	<div className="tree" key={tc.code}>
 														<div className="img-container">
 															<MediaBox src={tc.img} className="materialboxed"/>
 														</div>
