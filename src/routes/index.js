@@ -12,7 +12,7 @@ class Routes extends Component{
 	}
 	render(){
 		return (
-			<Router>
+			<Router basename={process.env.PUBLIC_URL}>
 				<Switch>
 					<Route path="/tree/:code" component={Tree}/>
 					<Route path="/trees" component={Trees}/>
