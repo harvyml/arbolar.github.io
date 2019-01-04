@@ -1,0 +1,32 @@
+.tree{
+	margin: auto;
+	width: 92%;
+	display: flex;
+	justify-content: space-between;
+}.tree .img-container{
+	width: 60%;
+	margin: auto;
+}.tree .img-container img{
+	width: 100%;
+}.tree .description{
+	margin: auto;
+	width: 30%;
+	text-align: center;		
+}
+
+@media only screen and (max-width: 800px){
+	.tree{
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 0;
+		display: block;
+	}.tree img{
+		width: 80%;
+		margin: auto;
+	}.tree .description{
+		width: 80
+
+
+		
+	}
+}

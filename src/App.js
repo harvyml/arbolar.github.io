@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import firebase from 'firebase';
-import './materialize.css';
 import {Modal, Icon, Carousel, Row, Col, Card, CardTitle, Parallax, Input, Button, Container} from 'react-materialize';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import $ from "jquery";
 import Routes from "./routes"
 //import Trees from './Trees';
+const config = {
+    apiKey: "AIzaSyDpEZklEojaVNvueAG88iXPSJXQD4xYUII",
+    authDomain: "sendatree-c3333.firebaseapp.com",
+    databaseURL: "https://sendatree-c3333.firebaseio.com",
+    projectId: "sendatree-c3333",
+    storageBucket: "sendatree-c3333.appspot.com",
+    messagingSenderId: "640304247213"
+}
+firebase.initializeApp(config)
 
 class App extends Component{
   componentWillMount (){
@@ -43,6 +49,7 @@ constructor(){
   this.uploadFile = this.uploadFile.bind(this)
   this.handleUploadPost = this.handleUploadPost.bind(this)
   this.handleShowHidden = this.handleShowHidden.bind(this)
+  this.renderWhenLogin = this.renderWhenLogin.bind(this)
 }
 
 uploadFile(){
@@ -141,6 +148,7 @@ handleShowFormat(){
   firebase.auth().signInWithPopup(provider)
   .then(result => console.log(`${result.user.email} ha iniciado sesión` ))
   .catch(error => console.log(`Error ${error.code}: ${error.message}` ))
+  console.log("Something")
 }
 
 handleLogout(){
@@ -180,9 +188,8 @@ renderWhenLogin(){
       <Row className='app-content'>
         <Col className='main-container'>
         {this.handleShowFormat()}
-        <Routes/>
-
           <Container>
+          <Routes/>
 
           {/*
             this.state.posts.map(post => (
@@ -227,7 +234,7 @@ renderWhenLogin(){
       	<Parallax imageSrc="https://c1.sfdcstatic.com/content/dam/blogs/us/thumbnails/8-creative-ways-to-use-instagrams-new-multiple-image-posting-feature/instagram_header.png"/>
 
       <div className='col s12 on-logout'>
-      <button className='btn hoverable btn-signin' onClick={this.handleAuth}>Iniciar sesion</button>
+      <button className='btn hoverable btn-signin' type="button" onClick={this.handleAuth}>Iniciar sesion</button>
       </div>
       </div>
     )

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import $ from "jquery";
-import './materialize.css';
-import './Topics.css';
 import {Modal, Icon, Carousel, Row, Col, Card, CardTitle, Parallax, Input, Button, Container, Tabs, Tab} from 'react-materialize';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
