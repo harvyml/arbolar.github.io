@@ -56,48 +56,38 @@ var Tree = function (_Component) {
 			metaTags: [] //To put them in the head, so that the SEO improves
 		};
 		_this.verify = _this.verify.bind(_this);
-		_this.Head = _this.Head.bind(_this);
+		//this.Head = this.Head.bind(this)
 		return _this;
 	}
 
+	/*
+ Head(){
+ 	const { match, location, history } = this.props;
+ 
+ 	for (var i in this.state.treeCode){
+ 		if(this.state.treeCode[i].code === match.params.code){
+ 			return (
+ 				<HeadProvider>
+ 			      <div className="Home">
+ 			        <Title>Arbolar | Arbol: {this.state.treeCode[i].code}</Title>
+ 			        <Meta name="description" content={this.state.treeCode[i].description} />
+ 			      </div>
+ 				</HeadProvider>
+ 				
+ 			)
+ 
+ 			break
+ 		}
+ 	}
+ }*/
+
 	_createClass(Tree, [{
-		key: 'Head',
-		value: function Head() {
+		key: 'verify',
+		value: function verify() {
 			var _props = this.props,
 			    match = _props.match,
 			    location = _props.location,
 			    history = _props.history;
-
-
-			for (var i in this.state.treeCode) {
-				if (this.state.treeCode[i].code === match.params.code) {
-					return _react2.default.createElement(
-						_reactHead.HeadProvider,
-						null,
-						_react2.default.createElement(
-							'div',
-							{ className: 'Home' },
-							_react2.default.createElement(
-								_reactHead.Title,
-								null,
-								'Arbolar | Arbol: ',
-								this.state.treeCode[i].code
-							),
-							_react2.default.createElement(_reactHead.Meta, { name: 'description', content: this.state.treeCode[i].description })
-						)
-					);
-
-					break;
-				}
-			}
-		}
-	}, {
-		key: 'verify',
-		value: function verify() {
-			var _props2 = this.props,
-			    match = _props2.match,
-			    location = _props2.location,
-			    history = _props2.history;
 
 			var tree = this.state.treeCode.map(function (tc) {
 				return tc.code === match.params.code ? _react2.default.createElement(
@@ -134,10 +124,10 @@ var Tree = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var _props3 = this.props,
-			    match = _props3.match,
-			    location = _props3.location,
-			    history = _props3.history;
+			var _props2 = this.props,
+			    match = _props2.match,
+			    location = _props2.location,
+			    history = _props2.history;
 			/*const TreeCode = ({ match }) => {
    	this.setState({
    		treeCode: match.params.code
@@ -150,8 +140,7 @@ var Tree = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				this.verify(),
-				this.Head()
+				this.verify()
 			);
 		}
 	}]);

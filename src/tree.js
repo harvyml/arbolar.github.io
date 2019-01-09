@@ -21,10 +21,10 @@ class Tree extends Component{
 			metaTags: []//To put them in the head, so that the SEO improves
 		}
 		this.verify = this.verify.bind(this)
-		this.Head = this.Head.bind(this)
+		//this.Head = this.Head.bind(this)
 	}
 
-
+	/*
 	Head(){
 		const { match, location, history } = this.props;
 
@@ -43,7 +43,7 @@ class Tree extends Component{
 				break
 			}
 		}
-	}
+	}*/
 
 
 	verify(){
@@ -76,9 +76,7 @@ class Tree extends Component{
 		}*/
 		return(
 			<div>
-			
 				{this.verify()}
-				{this.Head()}
 			</div>
 			
 

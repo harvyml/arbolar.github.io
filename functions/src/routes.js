@@ -51,13 +51,13 @@ var Routes = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				_reactRouterDom.BrowserRouter,
-				{ basename: '/' },
+				{ basename: process.env.PUBLIC_URL + "/" },
 				_react2.default.createElement(
 					_reactRouterDom.Switch,
 					null,
-					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/tree/:code', component: _tree2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/trees', component: _Trees2.default })
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/trees', component: _Trees2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/trees/', component: _Trees2.default })
 				)
 			);
 		}

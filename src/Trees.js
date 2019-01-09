@@ -21,20 +21,7 @@ componentWillMount(){
       trees: []
     }
     this.getTrees = this.getTrees.bind(this)
-    this.Head = this.Head.bind(this)
   }
-
-  Head(){
-		const { match, location, history } = this.props;
-    return (
-      <HeadProvider>
-          <div className="Home">
-            <Title>Arbolar | Arboles {location.path}</Title>
-            <Meta name="description" content={location.path} />
-          </div>
-      </HeadProvider>
-    )
-	}
 
   getTrees(){
     return(
@@ -61,7 +48,7 @@ componentWillMount(){
     return(
       <Row>
         <div className="trees container">
-           {this.getTrees()}
+           {this.getTrees()} 
         </div>
       </Row>
     )

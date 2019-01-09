@@ -63,35 +63,10 @@ var Trees = function (_Component) {
       trees: []
     };
     _this.getTrees = _this.getTrees.bind(_this);
-    _this.Head = _this.Head.bind(_this);
     return _this;
   }
 
   _createClass(Trees, [{
-    key: 'Head',
-    value: function Head() {
-      var _props = this.props,
-          match = _props.match,
-          location = _props.location,
-          history = _props.history;
-
-      return _react2.default.createElement(
-        _reactHead.HeadProvider,
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'Home' },
-          _react2.default.createElement(
-            _reactHead.Title,
-            null,
-            'Arbolar | Arboles ',
-            location.path
-          ),
-          _react2.default.createElement(_reactHead.Meta, { name: 'description', content: location.path })
-        )
-      );
-    }
-  }, {
     key: 'getTrees',
     value: function getTrees() {
       return this.state.trees.map(function (tree) {
